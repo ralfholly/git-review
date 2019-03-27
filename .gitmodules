@@ -1,0 +1,3 @@
+[submodule "menucmd"]
+	path = menucmd
+	url = https://github.com/ralfholly/menucmd.git
