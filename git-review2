@@ -1,0 +1,15 @@
+#!/bin/bash
+
+THIS_DIR=$(dirname $(readlink -f $0))
+
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 <rev1> <rev2> [<git diff arg>...]" 1>&2
+    exit 1
+fi
+
+_rev1=$1
+shift
+_rev2=$1
+shift
+
+$THIS_DIR/menucmd/menucmd.py git difftool -y "$@" $_rev1 $_rev2 -- $(git diff --name-only $_rev1 $_rev2)
